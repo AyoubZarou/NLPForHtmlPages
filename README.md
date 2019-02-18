@@ -5,7 +5,7 @@ To use the script, you need to have Python 3 installed. Then you need to install
 
 # The different components on the script 
 
-The file is a two functions based script : 
+The project is two scripts based : 
 ## `get_body`
  ```python
 def get_body(html) :
