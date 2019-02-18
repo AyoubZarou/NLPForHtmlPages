@@ -26,8 +26,7 @@ def process_body(body=None):
                 body= f.read()
                 f.close()
         except : 
-            print('No body given, the parameter is necessary if there is no file body.txt, you may need to\
-                  execute get_body first')
+            print('No body given, the parameter is necessary if there is no file body.txt, you may need t execute get_body first')
             return
     associations={}
     for line in body.splitlines(): # we process each line on its own
