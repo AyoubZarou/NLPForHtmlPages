@@ -1,14 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb 18 12:44:55 2019
-
-@author: ZAROU AYOUB
-"""
 import re
 import spacy 
 from collections import defaultdict
-nlp=spacy.load('fr_core_news_sm') # this might take a little time
 
+nlp=spacy.load('fr_core_news_sm') # this might take a little time
 
 def process_body(body=None):
     """
@@ -44,7 +38,7 @@ def process_body(body=None):
                 associations[verb_in_the_line].append(token.text)
     with open('processed_data.txt','w') as f : # we store the results on a text file 
         for key in associations : 
-            line=key +" "*(20-len(key))+':  '+', '.join(associations[key])+'\n'
+            line=f"{key} {' '*(20-len(key))} :  {', '.join(associations[key])} \n"
             f.write(line)
     return associations
 
