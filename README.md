@@ -20,17 +20,14 @@ The project is two scripts based :
  ## `process_body`
  
 ```python
-    input : 
-    ----------
-        body : a string that contains the body after being processed and structured, if body is not given, the scripts tries to 
-        fond it on the body.txt if it's already created
-    return :
-    -----------
-
-        associations: it contains the verbs on the file and all the nouns that may go hand in hand 
-        with the verb, the result is stored in a python dictionary structure
+ input : 
+    body : a string that contains the body after being processed and structured, if body is not given, the scripts tries to 
+      fond it on the body.txt if it's already created
+  return :
+     associations: it contains the verbs on the file and all the nouns that may go hand in hand 
+      with the verb, the result is stored in a python dictionary structure
         
-    the result is also stored on a text file named processed_data.txt
+   the result is also stored on a text file named processed_data.txt
 ```
 # Execute the script 
 
