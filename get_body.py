@@ -7,9 +7,9 @@ Created on Fri Feb 15 23:57:01 2019
 
 #import urllib
 import re
-url = "https://support.mozilla.org/fr/products/firefox/basic-browsing-firefox" 
 import urllib.request
-html_page = urllib.request.urlopen(url).read().decode('utf-8') # we get the script from the url
+
+
 def get_body(data):
     """
     input : 
@@ -31,7 +31,10 @@ def get_body(data):
         file.write(body) # write the results on a text file named body.txt on the same directory as the script
         file.close()
     return body
+
 if __name__ == "__main__":
+    url = "https://support.mozilla.org/fr/products/firefox/basic-browsing-firefox" 
+    html_page = urllib.request.urlopen(url).read().decode('utf-8') # we get the body from the url
     get_body(html_page)
 
 
