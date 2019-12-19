@@ -31,8 +31,8 @@ def get_body(data):
         file.write(body) # write the results on a text file named body.txt on the same directory as the script
         file.close()
     return body
-
-get_body(html_page)
+if __name__ == "__main__":
+    get_body(html_page)
 
 
 
