@@ -6,6 +6,7 @@ Created on Mon Feb 18 12:44:55 2019
 """
 import re
 import spacy 
+from collections import defaultdict
 nlp=spacy.load('fr_core_news_sm') # this might take a little time
 
 
@@ -31,7 +32,7 @@ def process_body(body=None):
 
             raise ValueError(("No body given, the parameter is necessary if" 
                             "there is no file body.txt, you may need t execute get_body first"))
-    associations={}
+    associations = defaultdict(list)
     for line in body.splitlines(): # we process each line on its own
         doc=nlp(line)
         verb_pattern=re.compile(r'.*ée?s?$') # a pattern to spot all the adjectives that nlp happens to identify as verbs
@@ -40,10 +41,7 @@ def process_body(body=None):
             if token.pos_=="VERB" and not verb_pattern.match(token.text):
                verb_in_the_line=token.text
             if verb_in_the_line and token.pos_=="NOUN":
-                if verb_in_the_line in associations:
-                    associations[verb_in_the_line].append(token.text)
-                else : 
-                    associations[verb_in_the_line]=[token.text]
+                associations[verb_in_the_line].append(token.text)
     with open('processed_data.txt','w') as f : # we store the results on a text file 
         for key in associations : 
             line=key +" "*(20-len(key))+':  '+', '.join(associations[key])+'\n'
