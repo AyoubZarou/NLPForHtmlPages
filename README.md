@@ -8,8 +8,6 @@ To use the script, you need to have Python 3 installed. Then you need to install
 The project is two scripts based : 
 ## `get_body`
  ```python
-def get_body(html) :
-'''
  input : 
         
  data : a string that contains the complete html page source code 
@@ -17,14 +15,11 @@ def get_body(html) :
  return :
         
  body: a parsed body, after getting rid of all the html tags, scripts,multiple spaces and line breaks
- '''
  ```
  The get_body function takes an html page as a string, and processes the body of the page and, as it returns it as a string, it creates a text file named `body.txt` and stores the result on it
  ## `process_body`
  
 ```python
-  def process_body(body=None)
-    """
     input : 
     ----------
         body : a string that contains the body after being processed and structured, if body is not given, the scripts tries to 
@@ -36,8 +31,6 @@ def get_body(html) :
         with the verb, the result is stored in a python dictionary structure
         
     the result is also stored on a text file named processed_data.txt
-    
-    """  
 ```
 # Execute the script 
 
