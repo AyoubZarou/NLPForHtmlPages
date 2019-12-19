@@ -18,25 +18,25 @@ def process_body(body=None):
     """   
     
     if body is None: 
-        try :  # if body not given , we try to read it from a text file
-            with open('body.txt','r') as f :
+        try:  # if body not given , we try to read it from a text file
+            with open('body.txt', 'r') as f:
                 body= f.read()
                 f.close()
-        except : 
+        except: 
 
             raise ValueError(("No body given, the parameter is necessary if" 
                             "there is no file body.txt, you may need t execute get_body first"))
     associations = defaultdict(list)
     for line in body.splitlines(): # we process each line on its own
-        doc=nlp(line)
-        verb_pattern=re.compile(r'.*ée?s?$') # a pattern to spot all the adjectives that nlp happens to identify as verbs
-        verb_in_the_line=None
-        for token in doc :
-            if token.pos_=="VERB" and not verb_pattern.match(token.text):
+        doc = nlp(line)
+        verb_pattern = re.compile(r'.*ée?s?$') # a pattern to spot all the adjectives that nlp happens to identify as verbs
+        verb_in_the_line = None
+        for token in doc:
+            if (token.pos_ == "VERB" and not verb_pattern.match(token.text)):
                verb_in_the_line=token.text
-            if verb_in_the_line and token.pos_=="NOUN":
+            if (verb_in_the_line and token.pos_ == "NOUN"):
                 associations[verb_in_the_line].append(token.text)
-    with open('processed_data.txt','w') as f : # we store the results on a text file 
+    with open('processed_data.txt', 'w') as f: # we store the results on a text file 
         for key in associations : 
             line=f"{key} {' '*(20-len(key))} :  {', '.join(associations[key])} \n"
             f.write(line)
