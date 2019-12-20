@@ -1,7 +1,7 @@
 import re
 import urllib.request as request
+from config import FILE_NAME
 
-FILE_NAME = 'body.txt' # where to save the file
 def get_body(data):
     """ get the body from a web page
     input:
