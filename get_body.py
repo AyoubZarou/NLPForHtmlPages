@@ -1,6 +1,6 @@
 import re
 import urllib.request as request
-from config import FILE_NAME
+from config import BODY_FILE_NAME
 
 def get_body(data):
     """ get the body from a web page
@@ -17,7 +17,7 @@ def get_body(data):
     body = re.sub(r'&#39;',"'",body) # the code for ' is &#39; , for some raison it's not processed with the decode function,
                                      # so we do it afterwards 
     body = re.sub(r'\n(\s)+','\n',body) # get rid of the multispaces and multilinebreaks and use instead one linebreak
-    with open(FILE_NAME, 'w') as file:  
+    with open(BODY_FILE_NAME, 'w') as file:  
         file.write(body) # write the results on a text file named body.txt on the same directory as the script
         file.close()
     return body
