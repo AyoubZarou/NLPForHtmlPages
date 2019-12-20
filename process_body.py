@@ -1,10 +1,9 @@
 import re
 import spacy 
 from collections import defaultdict
+from config import BODY_FILE_NAME, PROCESSED_FILE_NAME
 
 nlp=spacy.load('fr_core_news_sm') # this might take a little time
-BODY_FILE_NAME = 'body.txt'
-PROCESSED_FILE_NAME  = 'processed_data.txt'
 
 def process_body(body=None):
     """
