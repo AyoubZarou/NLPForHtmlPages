@@ -5,7 +5,7 @@ from config import BODY_FILE_NAME, PROCESSED_FILE_NAME
 
 nlp=spacy.load('fr_core_news_sm') # this might take a little time
 
-def process_body(body=None):
+def process_body(body : str = None) -> dict:
     """
     input : 
         :body - a string that contains the body after being processed and structured
