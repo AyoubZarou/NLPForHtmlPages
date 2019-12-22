@@ -2,7 +2,7 @@ import re
 import urllib.request as request
 from config import BODY_FILE_NAME
 
-def get_body(data):
+def get_body(data : str) -> str:
     """ get the body from a web page
     input:
      :data - a string that contains the complete html page source code
