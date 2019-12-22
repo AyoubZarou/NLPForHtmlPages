@@ -35,7 +35,7 @@ def process_body(body : str = None) -> dict:
                 associations[verb_in_the_line].append(token.text)
     with open(PROCESSED_FILE_NAME, 'w') as f: # we store the results on a text file 
         for key in associations : 
-            line=f"{key} {' '*(20-len(key))} :  {', '.join(associations[key])} \n"
+            line = f"{key} {' '*(20-len(key))} :  {', '.join(associations[key])} \n"
             f.write(line)
     return associations
 
