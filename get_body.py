@@ -12,11 +12,11 @@ def get_body(data : str) -> str:
     pattern = re.compile(r'<body(.|\n)*>(.|\n)*</body>') # Using regular expressions to find the text between the body tags
     body = pattern.search(data) # return the data on the body
     body = body.group() # get the result in a string
-    body = re.sub(r'<script*>*</script>','',body) # delete all the scripts 
-    body = re.sub(r'<[^>]*>','',body) # get rid of all the html tags
-    body = re.sub(r'&#39;',"'",body) # the code for ' is &#39; , for some raison it's not processed with the decode function,
+    body = re.sub(r'<script*>*</script>', '', body) # delete all the scripts 
+    body = re.sub(r'<[^>]*>', '', body) # get rid of all the html tags
+    body = re.sub(r'&#39;', "'", body) # the code for ' is &#39; , for some raison it's not processed with the decode function,
                                      # so we do it afterwards 
-    body = re.sub(r'\n(\s)+','\n',body) # get rid of the multispaces and multilinebreaks and use instead one linebreak
+    body = re.sub(r'\n(\s)+', '\n', body) # get rid of the multispaces and multilinebreaks and use instead one linebreak
     with open(BODY_FILE_NAME, 'w') as file:  
         file.write(body) # write the results on a text file named body.txt on the same directory as the script
         file.close()
