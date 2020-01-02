@@ -19,7 +19,6 @@ def get_body(data : str) -> str:
     body = re.sub(r'\n(\s)+', '\n', body) # get rid of the multispaces and multilinebreaks and use instead one linebreak
     with open(BODY_FILE_NAME, 'w') as file:  
         file.write(body) # write the results on a text file named body.txt on the same directory as the script
-        file.close()
     return body
 
 if __name__ == "__main__":
