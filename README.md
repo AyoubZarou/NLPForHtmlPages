@@ -3,7 +3,7 @@
 To use the script, you need to have Python 3 installed. Then you need to install spacy, for that sake, please visit the spacy usage page [here](https://spacy.io/usage/)
 
 
-# The different components on the script 
+# Components of the script 
 
 The project is two scripts based : 
 ## `get_body`
